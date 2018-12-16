@@ -1,0 +1,21 @@
+{
+  "name": "moon-child",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js",
+    "dev": "concurrently \"nodemon app.js\" \"cd client && yarn start \"",
+    "heroku-prebuild": "rm -rf public/ && mkdir public",
+    "heroku-postbuild": "cd client && npm i && npm run build"
+  },
+  "dependencies": {
+    "concurrently": "^4.1.0",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "materialize-css": "^1.0.0-rc.2",
+    "morgan": "~1.9.0",
+    "pug": "2.0.0-beta11"
+  }
+}
