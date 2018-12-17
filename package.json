@@ -6,7 +6,8 @@
     "start": "node app.js",
     "dev": "concurrently \"nodemon app.js\" \"cd client && yarn start \"",
     "heroku-prebuild": "rm -rf public/ && mkdir public",
-    "heroku-postbuild": "cd client && npm i && npm run build"
+    "heroku-postbuild": "cd client && npm i && npm run build",
+    "test": "mocha"
   },
   "dependencies": {
     "bcrypt": "^3.0.2",

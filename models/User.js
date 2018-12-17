@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
-
+// User Schema Definitions
 const userSchema = new Schema({
     username: {
         type: String, 
@@ -17,12 +17,13 @@ const userSchema = new Schema({
         required: true,
         minlength: 8,
         maxlength: 20,
-        validate: /[^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$]/
+        validate: /\[^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$\]/
     },
     email: {
         type: String,
         required: true,
         minlength: 6, 
+        unique: true,
         validate: /[^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,63}$]/
     }, 
     posts: {
@@ -31,6 +32,7 @@ const userSchema = new Schema({
     }
 });
 
+// User Schema + Bcrypt Password Methods
 userSchema.pre('save', function(next){
     let user = this;
 
@@ -54,6 +56,17 @@ userSchema.methods.comparePassword = function comparePassword(candidatePassword,
         return cb(null, isMatch);
     });
 };
+
+// User Schema Error Handler
+var handleE11000 = function(error, res, next) {
+    if (error.name === 'MongoError' && error.code === 11000) {
+      next(new Error('There was a duplicate key error'));
+    } else {
+      next();
+    }
+  };
+
+  userSchema.post("save", handleE11000);
 
 let User = mongoose.model("Users", userSchema);
 module.exports= User;
