@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require("mongoose");
-
+const User = require("./models/User");
 // routes - port - app
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -51,9 +51,11 @@ app.use(function(err, req, res, next) {
 //connecting to mongoDB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/moon_child_db");
 
+
 // server listening
 app.listen(port, () => {
   console.log("🌕  Server listening on port" + port);
+  
 });
 
 module.exports = app;

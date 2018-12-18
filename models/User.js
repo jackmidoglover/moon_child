@@ -10,13 +10,13 @@ const userSchema = new Schema({
         required: true, 
         unique: true,
         minlength: 3,
-        maxlength:20
+        maxlength:25,
+        validate: /^[a-zA-Z0-9_]+$/
     }, 
     password: {
         type: String,
         required: true,
         minlength: 8,
-        maxlength: 20,
         validate: /\[^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$\]/
     },
     email: {
@@ -57,16 +57,31 @@ userSchema.methods.comparePassword = function comparePassword(candidatePassword,
     });
 };
 
-// User Schema Error Handler
+// User Schema Error Handlers
 var handleE11000 = function(error, res, next) {
     if (error.name === 'MongoError' && error.code === 11000) {
-      next(new Error('There was a duplicate key error'));
+      next(new Error('There was a duplicate key error', error.path));
     } else {
       next();
     }
   };
 
+  var handleValidationE = function(error, res, next){
+      if (error.name === 'ValidatorError'){
+          next(new Error(error.message), error.path);
+      }
+      else{
+          next();
+      }
+  }
+
   userSchema.post("save", handleE11000);
+  userSchema.post("save", handleValidationE);
 
 let User = mongoose.model("Users", userSchema);
 module.exports= User;
+
+// 'Path `password` (`test`) is shorter than the minimum allowed length (8).'
+// 'Validator failed for path `email` with value `test@test.com`'
+// 'Validator failed for path `email` with value `testing`'
+// 'Validator failed for path `password` with value `testinng`'
