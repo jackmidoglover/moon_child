@@ -4,7 +4,7 @@
 > \- King Crimson
 
 >"You're beloved of the moon, Ninefingers"
-> \- Crummock-i-Phail, Last Argument of Kings, Joe Abercrombie*
+> \- Crummock-i-Phail, Last Argument of Kings, Joe Abercrombie
 
 Moon Child is a simple journalling app for potential lycanthropes and lunatics (hah, get it?) who like to keep tabs on the moon phases. The app serves two simple purposes: informing visitors of the current moon phase, and allowing registered users to create a journal categorized by the moon phase. 
 

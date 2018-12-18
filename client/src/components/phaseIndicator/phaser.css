@@ -1,0 +1,71 @@
+.waxHalfMoon {
+    height: 300px;
+    width: 300px;
+    background-image: linear-gradient(to right,white 50%, transparent 50%);
+    margin: 0 auto;
+    border-radius: 150px;
+    border: 10px solid white;
+}
+
+.fullMoon {
+    height: 300px;
+    width: 300px;
+    background-image: linear-gradient(to right,white, white);
+    margin: 0 auto;
+    border-radius: 150px;
+    border: 10px solid white;
+}
+
+.newMoon {
+    height: 300px;
+    width: 300px;
+    background-image: linear-gradient(to right, transparent, transparent);
+    margin: 0 auto;
+    border-radius: 150px;
+    border: 10px solid white;
+}
+
+.waneHalfMoon {
+    height: 300px;
+    width: 300px;
+    background-image: linear-gradient(to right, transparent 50%, white 50%);
+    margin: 0 auto;
+    border-radius: 150px;
+    border: 10px solid white;
+}
+
+.waneCrescent {
+    height: 300px;
+    width: 300px;
+    background-image: radial-gradient(ellipse closest-corner at 33% 55%, transparent 96%, white 98%);
+    margin: 0 auto;
+    border-radius: 150px;
+    border: 10px solid white;
+}
+
+.waxCrescent{
+    height: 300px;
+    width: 300px;
+    background-image: radial-gradient(ellipse closest-corner at 65% 55%, transparent 96%, white 98%);
+    margin: 0 auto;
+    border-radius: 150px;
+    border: 10px solid white; 
+}
+
+.sliverWane{
+    height: 300px;
+    width: 300px;
+    background-image: radial-gradient(ellipse closest-corner at 38% 55%, transparent 96%, white 98%);
+    margin: 0 auto;
+    border-radius: 150px;
+    border: 10px solid white;
+}
+
+.sliverWax{
+    height: 300px;
+    width: 300px;
+    background-image: radial-gradient(ellipse closest-corner at 63% 55%, transparent 96%, white 98%);
+    margin: 0 auto;
+    border-radius: 150px;
+    border: 10px solid white;
+}
