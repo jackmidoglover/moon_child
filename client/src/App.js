@@ -7,7 +7,7 @@ import Phaser from './components/phaseIndicator/Phaser';
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className="container">
           <Header />
           <Phaser />
       </div>

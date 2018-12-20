@@ -2,7 +2,7 @@ import React from 'react';
 import './phaser.css';
 import api from '../../utils/api';
 import moment from 'moment';
-
+import '../../../node_modules/materialize-css/dist/css/materialize.min.css';
 
 export class Phaser extends React.Component {
     state = {
@@ -19,52 +19,52 @@ export class Phaser extends React.Component {
 
     phaserClassSet = (phase, illumination) => {
         // Condition to check gibbous
-        if (.97 >= illumination >= .67){
-            if (phase === "Waxing Gibbous"){
-            return "gibbousWax";
+        if (.97 >= illumination >= .67) {
+            if (phase === "Waxing Gibbous") {
+                return "gibbousWax";
             }
-            else if (phase === "Waning Gibbous"){
+            else if (phase === "Waning Gibbous") {
                 return "gibbousWane";
             }
         }
         // Condition to check for full
-        else if (illumination >= .98){
+        else if (illumination >= .98) {
             return "fullMoon";
         }
         // Condition to check for half moon wane or wax
-        else if ( .66 >= illumination >= .44){
-            if (phase === "Waxing Crescent" || phase === "Waxing Crescent"){
+        else if (.66 >= illumination >= .44) {
+            if (phase === "Waxing Crescent" || phase === "Waxing Crescent") {
                 return "waxHalfMoon";
             }
-            else if (phase === "Waning Gibbous" || phase === "Waning Crescent"){
+            else if (phase === "Waning Gibbous" || phase === "Waning Crescent") {
                 return "waneHalfMoon";
             }
         }
         // condition to check for crescent (larger)
-        else if (.43 >= illumination >= .15){
-            if (phase === "Waning Crescent"){
-            return "waneCrescent";
+        else if (.43 >= illumination >= .15) {
+            if (phase === "Waning Crescent") {
+                return "waneCrescent";
             }
-            else if (phase === "Waxing Crescent"){
+            else if (phase === "Waxing Crescent") {
                 return "waxCrescent";
             }
         }
         // condition to check for crescent (smaller)
-        else if (.11 >= illumination >= .0016){
-            if (phase === "Waning Crescent"){
+        else if (.11 >= illumination >= .0016) {
+            if (phase === "Waning Crescent") {
                 return "sliverWane";
             }
-            else if (phase === "Waxing Crescent"){
+            else if (phase === "Waxing Crescent") {
                 return "sliverWax";
             }
         }
         // condition to check for new moon
-        else if (.0015 >= illumination){
+        else if (.0015 >= illumination) {
             return "newMoon";
         }
     }
 
-    componentWillMount(){
+    componentWillMount() {
         console.log(this.state.date);
         api.querySolunar(this.state.latitude, this.state.longitude, this.state.date, this.state.timezone).then(moonData => {
             console.log(moonData);
@@ -74,7 +74,7 @@ export class Phaser extends React.Component {
             const moonPhase = moonData.data.moonPhase;
             this.setState({
                 moonPhase: moonPhase,
-                moonRise: moonRise, 
+                moonRise: moonRise,
                 moonSet: moonSet,
                 moonIllumination: moonIllumination,
                 phaserClass: this.phaserClassSet(moonPhase, moonIllumination)
@@ -83,11 +83,19 @@ export class Phaser extends React.Component {
         })
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div>
                 <div className="moonContainer">
-                    <div className={this.state.phaserClass}></div>
+                    <div className="row">
+                        <div className={this.state.phaserClass}></div>
+                    </div>
+                    <div className="row">
+                        <div className="col s6 offset-s3 center">
+                            <span className="white-text"><strong>Moon Rise:</strong> {this.state.moonRise}  </span>
+                            <span className="white-text"><strong>|  Moon Set:</strong> {this.state.moonSet}</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         )
