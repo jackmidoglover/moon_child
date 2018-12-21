@@ -1,24 +1,33 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route} from "react-router-dom";
 import './App.css';
 import Header from './components/header/Header';
 import '../node_modules/materialize-css/dist/css/materialize.css';
 import '../node_modules/materialize-css/sass/components/_icons-material-design.scss';
-import Phaser from './components/phaseIndicator/Phaser';
+import Navbar from './components/navbar/Navbar';
+import Wrapper from './components/Wrapper/Wrapper';
+import About from './pages/About';
+import Home from './pages/Home';
+import Journal from './pages/Journal';
+import Calendar from './pages/Calendar';
 
 class App extends Component {
   render() {
     return (
-      <div className="container">
-        <Header />
-        <Phaser />
-        <div className="row">
-          <div className="col m6 offset-m3 center">
-            <button class="btn waves-effect waves-light amber btnM"> Sign In  <i class="fas fa-sign-in-alt"></i>
-            </button>
-            <button class="btn waves-effect waves-light amber btnM">Sign Up  <i class="fas fa-user-plus"></i>
-            </button>
-          </div>
+      <div className="container-fluid">
+      <Router>
+        <div>
+          <Navbar />
+          <Header />
+            <Wrapper>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/Home" component={Home} />
+              <Route exact path="/About" component={About} />
+              <Route exact path="/Journal" component={Journal} />
+              <Route exact path="/Calendar" component={Calendar} />
+            </Wrapper>
         </div>
+      </Router>
       </div>
     );
   }
