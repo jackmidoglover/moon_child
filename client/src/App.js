@@ -3,8 +3,7 @@ import { BrowserRouter as Router, Route} from "react-router-dom";
 import './App.css';
 import Header from './components/header/Header';
 import '../node_modules/materialize-css/dist/css/materialize.css';
-import '../node_modules/materialize-css/sass/components/_icons-material-design.scss';
-import Navbar from './components/navbar/Navbar';
+import Navbarre from './components/navbar/Navbar';
 import Wrapper from './components/Wrapper/Wrapper';
 import About from './pages/About';
 import Home from './pages/Home';
@@ -17,7 +16,7 @@ class App extends Component {
       <div className="container-fluid">
       <Router>
         <div>
-          <Navbar />
+          <Navbarre />
           <Header />
             <Wrapper>
               <Route exact path="/" component={Home} />

@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import './navbar.css';
 
-const Navbar = props => (
+const Navbarre = props => (
     <nav id="transparent">
         <div className="nav-wrapper">
-            <ul class="right hide-on-med-and-down">
+            <ul class="right">
                 <li
                 className={
                     window.location.pathname === "/Home"
@@ -53,4 +53,4 @@ const Navbar = props => (
     </nav>
 )
 
-export default Navbar;
+export default Navbarre;
