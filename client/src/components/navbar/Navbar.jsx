@@ -6,15 +6,11 @@ const Navbarre = props => (
     <nav id="transparent">
         <div className="nav-wrapper">
             <ul class="right">
-                <li
-                className={
-                    window.location.pathname === "/Home"
-                        ? "active"
-                        : null
-                }>
-                    <Link to="/Home">
-                    Home</Link>
-                </li>
+            {window.location.pathname === "/Home" || window.location.pathname === "/"
+                ? null
+            
+                :  <li><Link to="/Home">Home</Link></li>
+            }
                 <li>
                     <Link
                         to="/About"
@@ -24,7 +20,8 @@ const Navbarre = props => (
                                 : null
                         }
                     >
-                    About</Link>
+                        About
+                    </Link>
                 </li>
                 <li>
                     <Link
