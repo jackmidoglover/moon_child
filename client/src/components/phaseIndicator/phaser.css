@@ -70,21 +70,20 @@
     border: 10px solid white;
 }
 
-
-
 .gibbousWane{
     height: 300px;
     width: 300px;
-    background-image: radial-gradient(ellipse closest-corner at 13% 46%, transparent 62%, white 98%);
+    background-image: radial-gradient(ellipse closest-side at 61% 50%, white 100%, transparent 60%);
     margin: 0 auto;
     border-radius: 150px;
     border: 10px solid white;
 }
 
+
 .gibbousWax{
     height: 300px;
     width: 300px;
-    background-image:radial-gradient(ellipse closest-corner at 84% 55%, transparent 65%, white 80%);
+    background-image:radial-gradient(circle farthest-side at 29% 50%, white 77%, transparent 34%);
     margin: 0 auto;
     border-radius: 150px;
     border: 10px solid white;
