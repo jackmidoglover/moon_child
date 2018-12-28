@@ -11,6 +11,10 @@ import Journal from './pages/Journal';
 import Calendar from './pages/Calendar';
 
 class App extends Component {
+  state = {
+    signUpClicked: false, 
+    logInClicked: false
+  }
   render() {
     return (
       <div className="container-fluid">

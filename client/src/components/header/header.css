@@ -1,4 +1,10 @@
 #logo {
     font-family: 'Arizonia', cursive;
     font-size: 125px;
+    margin-top: 0;
+    margin-bottom: 80px;
+}
+
+.headerr {
+    margin-top: 0;
 }

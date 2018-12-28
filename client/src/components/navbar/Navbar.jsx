@@ -5,7 +5,7 @@ import './navbar.css';
 const Navbarre = props => (
     <nav id="transparent">
         <div className="nav-wrapper">
-            <ul class="right">
+            <ul className="right">
             {window.location.pathname === "/Home" || window.location.pathname === "/"
                 ? null
             
@@ -37,7 +37,7 @@ const Navbarre = props => (
                 <li>
                     <Link
                         to="/Calendar"
-                        clasName={
+                        className={
                             window.location.pathname === "/Calendar"
                                 ? "active"
                                 : null
