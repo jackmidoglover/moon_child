@@ -11,7 +11,7 @@ export class Signup extends React.Component {
             <div className="col s12 m4 offset-m4">
                 <div className="card horizontal">
                     <div className="card-image">
-                        <img src="../../assets/moon.jpeg" alt="Moon setting over water"/>
+                        <img src="/assets/images/dawnmoon.jpg" alt="Moon setting over water"/>
                     </div>
                     <div className="card-stacked">
                     <div className="card-content">

@@ -19,7 +19,8 @@ export class Phaser extends React.Component {
 
     phaserClassSet = (phase, illumination) => {
         // Condition to check gibbous
-        if (.97 >= illumination >= .67) {
+        if (.97 >= illumination && illumination >= .67) {
+            console.log("first if");
             if (phase === "Waxing Gibbous") {
                 return "gibbousWax";
             }
@@ -29,19 +30,24 @@ export class Phaser extends React.Component {
         }
         // Condition to check for full
         else if (illumination >= .98) {
+            console.log("first else if");
             return "fullMoon";
         }
         // Condition to check for half moon wane or wax
-        else if (.66 >= illumination >= .44) {
-            if (phase === "Waxing Crescent" || phase === "Waxing Crescent") {
+        else if (.66 >= illumination && illumination >= .43) {
+            console.log("Half moon");
+            var waneIndicator = phase.split(" ");
+            if (waneIndicator[0] === "Waxing") {
+                console.log("Waxing half moon");
                 return "waxHalfMoon";
             }
-            else if (phase === "Waning Gibbous" || phase === "Waning Crescent") {
+            else if (waneIndicator[0] === "Waning") {
+                console.log("Waning half moon")
                 return "waneHalfMoon";
             }
         }
         // condition to check for crescent (larger)
-        else if (.43 >= illumination >= .15) {
+        else if (.43 >= illumination && illumination >= .15) {
             if (phase === "Waning Crescent") {
                 return "waneCrescent";
             }
@@ -50,7 +56,7 @@ export class Phaser extends React.Component {
             }
         }
         // condition to check for crescent (smaller)
-        else if (.11 >= illumination >= .0016) {
+        else if (.11 >= illumination && illumination >= .0016) {
             if (phase === "Waning Crescent") {
                 return "sliverWane";
             }
@@ -71,6 +77,7 @@ export class Phaser extends React.Component {
             const moonRise = moonData.data.moonRise;
             const moonSet = moonData.data.moonSet;
             const moonIllumination = moonData.data.moonIllumination;
+            console.log(moonIllumination.toFixed(2));
             const moonPhase = moonData.data.moonPhase;
             this.setState({
                 moonPhase: moonPhase,

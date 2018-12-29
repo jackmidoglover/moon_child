@@ -11,13 +11,14 @@ export class Home extends React.Component{
 
   signUpHandler = () => {
     this.setState({
-      signUpClicked: !this.signUpClicked
+      signUpClicked: !this.state.signUpClicked
     });
   }
 
   logInHandler = () => {
+    console.log(this.state);
     this.setState({
-      logInClicked: !this.logInClicked
+      logInClicked: !this.state.logInClicked
     });
   }
   render(){
